@@ -58,7 +58,7 @@ function App() {
         </div> */}
 
         <div className="actions">
-          <a className="button primary" href='https://www.instagram.com/bdpremiumtravel/' target='_blank' rel='noreferrer'>
+          <a className="button primary" href='https://www.facebook.com/share/1BqMQFMGv9/' target='_blank' rel='noreferrer'>
             Visit Media
           </a>
           {/* <a className="button ghost" href="https://instagram.com" target="_blank" rel="noreferrer">
