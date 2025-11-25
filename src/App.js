@@ -19,6 +19,7 @@ function getTimeLeft(targetDate) {
 function App() {
   const launchDate = useMemo(() => new Date('2025-01-15T00:00:00'), []);
   const [timeLeft, setTimeLeft] = useState(getTimeLeft(launchDate));
+  const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -28,11 +29,34 @@ function App() {
     return () => clearInterval(timer);
   }, [launchDate]);
 
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      const { innerWidth, innerHeight } = window;
+      if (!innerWidth || !innerHeight) return;
+
+      setMousePos({
+        x: (event.clientX / innerWidth) * 100,
+        y: (event.clientY / innerHeight) * 100,
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
-    <main className="coming-soon">
+    <main
+      className="coming-soon"
+      style={{
+        '--pointer-x': `${mousePos.x}%`,
+        '--pointer-y': `${mousePos.y}%`,
+      }}
+    >
       <div className="gradient-orbit orbit-one" aria-hidden="true"></div>
       <div className="gradient-orbit orbit-two" aria-hidden="true"></div>
       <div className="noise-overlay" aria-hidden="true"></div>
+      <div className="pointer-glow primary" aria-hidden="true"></div>
+      <div className="pointer-glow secondary" aria-hidden="true"></div>
 
       <section className="card">
         <img src="/D.png" alt="B&D Premium Travel" className="logo" />
