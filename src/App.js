@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import './App.css';
+import plane from './plane.png';
 
 function getTimeLeft(targetDate) {
   const difference = targetDate - new Date();
@@ -55,7 +56,7 @@ function App() {
       <div className="flight-path" aria-hidden="true">
         <img
           className="plane"
-          src="https://purepng.com/public/uploads/large/purepng.com-airplaneairplanevehiclestransportjetplanetravelskyaircraft-981525069349twm8y.png"
+          src={plane}
           alt="Airplane flying"
         />
       </div>
