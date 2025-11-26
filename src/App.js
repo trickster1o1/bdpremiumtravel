@@ -52,6 +52,13 @@ function App() {
         '--pointer-y': `${mousePos.y}%`,
       }}
     >
+      <div className="flight-path" aria-hidden="true">
+        <img
+          className="plane"
+          src="https://purepng.com/public/uploads/large/purepng.com-airplaneairplanevehiclestransportjetplanetravelskyaircraft-981525069349twm8y.png"
+          alt="Airplane flying"
+        />
+      </div>
       <div className="gradient-orbit orbit-one" aria-hidden="true"></div>
       <div className="gradient-orbit orbit-two" aria-hidden="true"></div>
       <div className="noise-overlay" aria-hidden="true"></div>
